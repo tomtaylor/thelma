@@ -12,11 +12,6 @@ window.document.innerHTML = html;
 window.document.styleSheets = function() { return []; };
 window.scrollTo = function(x, y) { return true; };
 
-var readConvertLinksToFootnotes = true;
-var readStyle = 'style-newspaper';
-var readSize = 'size-medium';
-var readMargin = 'margin-wide'
-
 fs.readFile(__dirname + "/readability.js", function(err, data) {
     Script.runInNewContext(data.toString(), {
       window: window, 
@@ -26,7 +21,7 @@ fs.readFile(__dirname + "/readability.js", function(err, data) {
       // these three variables are set from the bookmarklet, so we have to define them
       readStyle: 'style-newspaper', 
       readSize: 'size-medium', 
-      readMargin: 'margin-wide' 
+      readMargin: 'margin-wide'
     });
     sys.log(window.document.innerHTML);
 });
